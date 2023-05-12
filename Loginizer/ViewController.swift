@@ -7,43 +7,64 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+final class LoginViewController: UIViewController {
     
-    @IBOutlet weak var LoginTF: UITextField!
-    @IBOutlet weak var PasswordTF: UITextField!
+    @IBOutlet weak var loginTF: UITextField!
+    @IBOutlet weak var passwordTF: UITextField!
     
-    @IBOutlet weak var LogInButton: UIButton!
+    @IBOutlet weak var logInButton: UIButton!
     
     private let user = User.getUserData()
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        guard let welcomeVC = segue.destination as?  WelcomeViewController else {return}
+        let tabBarController = segue.destination as! UITabBarController
+        let welcomeVC = tabBarController.viewControllers?.first as! WelcomeViewController
+        let navigationVC = tabBarController.viewControllers?.last as! UINavigationController
+        let aboutVC = navigationVC.topViewController as! AboutViewController
+        let bioVC =  navigationVC.viewControllers as! BioViewController
         welcomeVC.user = user
+        aboutVC.user = user
+        bioVC.user = user
+//        
+        
+        
+        
+        
+//        guard let welcomeVC = segue.destination as?  WelcomeViewController else {return}
+//        welcomeVC.user = user
     }
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        LoginTF.layer.cornerRadius = 10
-        PasswordTF.layer.cornerRadius = 10
-        LogInButton.layer.cornerRadius = 10
+        logInButton.layer.cornerRadius = 10
     }
     
     
-    
-    
-    @IBAction func LogInTap(_ sender: UIButton) {
-        guard LoginTF.text == user.login,
-              PasswordTF.text == user.password
+    @IBAction func logInTap() {
+        guard loginTF.text == user.login,
+              passwordTF.text == user.password
         else {
             showAlert(title: "Invalid login or password",
                       message: "Please, enter correct login and password",
-                      textField: PasswordTF)
+                      textField: passwordTF)
             return
         }
         performSegue(withIdentifier: "LogIn", sender: nil)
+    }
+    
+    @IBAction func forgotLoginPassword(_ sender: UIButton) {
+        sender.tag == 0
+        ? showAlert(title: "Oops!", message: "Your name is \(user.login)")
+        : showAlert(title: "Oops!", message: "Your password is \(user.password)")
         
+    }
+    
+
+    
+    @IBAction func unwind(segue: UIStoryboardSegue) {
+        loginTF.text = nil
+        passwordTF.text = nil
     }
     
     private func showAlert(title: String, message: String, textField: UITextField? = nil) {
@@ -56,27 +77,13 @@ class ViewController: UIViewController {
     }
     
     
-    @IBAction func forgotNameTap() {
-        showAlert(title: "Oops!",
-                  message: "Your name is \(user.login)")
-    }
     
-    
-    @IBAction func forgotPasswordTap() {
-        showAlert(title: "Oops!",
-                  message: "Your password is \(user.password)")
-    }
-    
-    @IBAction func unwind(segue: UIStoryboardSegue) {
-        LoginTF.text = nil
-        PasswordTF.text = nil
-    }
     
 }
 
 
 
-extension ViewController: UITextFieldDelegate {
+extension LoginViewController: UITextFieldDelegate {
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         super.touchesBegan(touches, with: event)
@@ -84,10 +91,10 @@ extension ViewController: UITextFieldDelegate {
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        if textField == LoginTF {
-            PasswordTF.becomeFirstResponder()
+        if textField == loginTF {
+            passwordTF.becomeFirstResponder()
         } else {
-            LogInTap(LogInButton)
+            logInTap()
         }
         return true
     }

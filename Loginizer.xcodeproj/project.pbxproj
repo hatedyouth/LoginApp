@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		666032FF2A0EB5BE00A6C989 /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 666032FE2A0EB5BE00A6C989 /* AboutViewController.swift */; };
+		666033012A0EBF4500A6C989 /* BioViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 666033002A0EBF4500A6C989 /* BioViewController.swift */; };
 		66BB93D12A0AD1B900A450CC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66BB93D02A0AD1B900A450CC /* AppDelegate.swift */; };
 		66BB93D32A0AD1B900A450CC /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66BB93D22A0AD1B900A450CC /* SceneDelegate.swift */; };
 		66BB93D52A0AD1B900A450CC /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66BB93D42A0AD1B900A450CC /* ViewController.swift */; };
@@ -18,6 +20,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		666032FE2A0EB5BE00A6C989 /* AboutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
+		666033002A0EBF4500A6C989 /* BioViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BioViewController.swift; sourceTree = "<group>"; };
 		66BB93CD2A0AD1B900A450CC /* Loginizer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Loginizer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		66BB93D02A0AD1B900A450CC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		66BB93D22A0AD1B900A450CC /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -64,6 +68,8 @@
 				66BB93D22A0AD1B900A450CC /* SceneDelegate.swift */,
 				66BB93D42A0AD1B900A450CC /* ViewController.swift */,
 				66BB93EC2A0C304F00A450CC /* WelcomeViewController.swift */,
+				666032FE2A0EB5BE00A6C989 /* AboutViewController.swift */,
+				666033002A0EBF4500A6C989 /* BioViewController.swift */,
 				66BB93E82A0C1C4C00A450CC /* User.swift */,
 				66BB93D62A0AD1B900A450CC /* Main.storyboard */,
 				66BB93D92A0AD1BB00A450CC /* Assets.xcassets */,
@@ -144,6 +150,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				666033012A0EBF4500A6C989 /* BioViewController.swift in Sources */,
+				666032FF2A0EB5BE00A6C989 /* AboutViewController.swift in Sources */,
 				66BB93ED2A0C304F00A450CC /* WelcomeViewController.swift in Sources */,
 				66BB93D52A0AD1B900A450CC /* ViewController.swift in Sources */,
 				66BB93E92A0C1C4C00A450CC /* User.swift in Sources */,
